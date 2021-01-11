@@ -3,6 +3,9 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@fortawesome/fontawesome-svg-core": "^1.2.32",
+    "@fortawesome/free-solid-svg-icons": "^5.15.1",
+    "@fortawesome/react-fontawesome": "^0.1.14",
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.3.2",
     "@testing-library/user-event": "^7.1.2",
@@ -10,9 +13,14 @@
     "@types/node": "^12.0.0",
     "@types/react": "^16.9.51",
     "@types/react-dom": "^16.9.0",
+    "@types/react-router-dom": "^5.1.7",
+    "axios": "^0.21.1",
+    "node-sass": "4.14.1",
+    "normalize.css": "^8.0.1",
     "prettier-stylelint": "^0.4.2",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
+    "react-router-dom": "^5.2.0",
     "react-scripts": "3.4.1",
     "stylelint": "^13.7.2",
     "stylelint-config-prettier": "^8.0.2",
@@ -25,11 +33,11 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "lint": "$(npm bin)/eslint --fix -c ./.eslintrc.js 'src/**/*.{js,jsx}' && prettier --write \"./**/*.js\" \"./**/*.jsx\" && stylelint --fix src/**/*.scss",
-    "lint:js": "$(npm bin)/eslint --fix -c ./.eslintrc.js 'src/**/*.{js,jsx}'",
-    "format:js": "prettier --write 'src/**/*.{js,jsx}'",
-    "lint:css":"stylelint --fix src/**/*.scss",
-    "format:css":"prettier-stylelint --quiet --write src/**/*.scss"
+    "lint": "$(npm bin)/eslint --no-error-on-unmatched-pattern --fix -c ./.eslintrc.js 'src/**/*.{js,jsx,ts,tsx}' && prettier --write \"./**/*.js\" \"./**/*.ts\" \"./**/*.tsx\" && stylelint --fix src/**/*.scss",
+    "lint:js": "$(npm bin)/eslint --no-error-on-unmatched-pattern --fix -c ./.eslintrc.js 'src/**/*.{js,jsx,ts,tsx}'",
+    "format:js": "prettier --write 'src/**/*.{js,jsx,ts,tsx}'",
+    "lint:css": "stylelint --fix src/**/*.scss",
+    "format:css": "prettier-stylelint --quiet --write src/**/*.scss"
   },
   "browserslist": {
     "production": [
