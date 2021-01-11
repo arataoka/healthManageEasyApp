@@ -6,15 +6,37 @@ const youtube = axios.create({
   baseURL: 'https://www.googleapis.com/youtube/v3',
 });
 
+const commonParams = {
+  part: 'snippet',
+  maxResults: 1,
+  key: KEY,
+  regionCode: 'JP',
+  type: 'video',
+};
+
 export const fetchPopularData = async () => {
   return await youtube.get('/videos', {
     params: {
-      part: 'snippet',
-      maxResults: 1,
-      key: KEY,
-      regionCode: 'JP',
-      type: 'video',
+      ...commonParams,
       chart: 'mostPopular',
+    },
+  });
+};
+
+export const fetchSelectedData = async (id?: string) => {
+  return await youtube.get('/videos', {
+    params: {
+      ...commonParams,
+      id,
+    },
+  });
+};
+
+export const fetchRelatedData = async (id?: string) => {
+  return await youtube.get('/search', {
+    params: {
+      ...commonParams,
+      relatedToVideoId: id,
     },
   });
 };

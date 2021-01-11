@@ -1,0 +1,11 @@
+.sidenav{
+  width: 480px;
+  flex-basis: 480px;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  @media screen and (max-width: 960px){
+    width: 90%;
+    margin: 1rem auto;
+  }
+}
