@@ -8,7 +8,7 @@ const youtube = axios.create({
 
 const commonParams = {
   part: 'snippet',
-  maxResults: 1,
+  maxResults: 5,
   key: KEY,
   regionCode: 'JP',
   type: 'video',
@@ -37,6 +37,15 @@ export const fetchRelatedData = async (id?: string) => {
     params: {
       ...commonParams,
       relatedToVideoId: id,
+    },
+  });
+};
+
+export const fetchSearchData = async (query?: string) => {
+  return await youtube.get('/search', {
+    params: {
+      ...commonParams,
+      q: query,
     },
   });
 };

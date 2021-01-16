@@ -1,18 +1,11 @@
-import React, { useEffect, useContext } from 'react';
-import { fetchRelatedData } from '../../apis';
+import React, { useContext } from 'react';
 import { Store } from '../../store';
 import SideListItem from '../SideListItem/SideListItem';
 import Style from './_SideList.module.scss';
 
 const SideList: React.FC = () => {
-  const { globalState, setGlobalState } = useContext(Store);
-  useEffect(() => {
-    fetchRelatedData(globalState.selected.id).then(({ data: { items } }) => {
-      console.log(items);
-      setGlobalState({ type: 'SET_RELATED', payload: { related: items } });
-    });
-  }, [globalState.selected]);
-
+  const { globalState } = useContext(Store);
+  console.log(globalState.related);
   return (
     <div className={Style.sideNav}>
       {globalState.related ? (
