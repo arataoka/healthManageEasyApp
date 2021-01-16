@@ -5,7 +5,6 @@ import Style from './_SideList.module.scss';
 
 const SideList: React.FC = () => {
   const { globalState } = useContext(Store);
-  console.log(globalState.related);
   return (
     <div className={Style.sideNav}>
       {globalState.related ? (
